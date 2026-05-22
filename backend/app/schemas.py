@@ -1,4 +1,5 @@
-from datetime import date, datetime
+#from datetime import date, datetime
+from datetime import date as dt_date, datetime
 from typing import Literal, Optional
 
 from pydantic import BaseModel, EmailStr
@@ -78,19 +79,31 @@ class ProfileUpdateRequest(BaseModel):
     achievements: Optional[str] = None
 
 
+#class EventCreateRequest(BaseModel):
+    #title: str
+    #desc: str
+    #date: Optional[date] = None
+    #type: EventType
+
 class EventCreateRequest(BaseModel):
     title: str
     desc: str
-    date: Optional[date] = None
+    date: Optional[dt_date] = None
     type: EventType
-
 
 class EventOut(BaseModel):
     id: int
     title: str
     desc: str
-    date: Optional[date] = None
+    date: Optional[dt_date] = None
     type: EventType
+    
+#class EventOut(BaseModel):
+    #id: int
+    #title: str
+    #desc: str
+    #date: Optional[date] = None
+    #type: EventType
 
 
 class JobCreateRequest(BaseModel):
